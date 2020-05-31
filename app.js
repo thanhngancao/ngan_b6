@@ -36,7 +36,7 @@ mongoose
   })
   .then(result => {
     console.log('server run!');
-    app.listen(process.env.store || 3000);
+    app.listen(3000);
   })
   .catch(err => {
     console.log(err);
