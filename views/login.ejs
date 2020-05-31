@@ -1,8 +1,6 @@
+  <link rel="stylesheet" href="/css/login.css">
 
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body">
-      <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
+      <h1 class="Log">Login</h1>
       <%- include('partials/messages.ejs')%>
         <form action="/users/login" method="POST">
         <div class="form-group">
@@ -25,11 +23,21 @@
             placeholder="Enter Password"
           />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <button type="submit" class="bulo">Login</button>
       </form>
-      <p class="lead mt-4">
-        No Account? <a href="/users/register">Register</a>
-      </p>
-    </div>
-  </div>
-</div>
+      <p class="noacc">If you don't have account, you could register <a href="/users/register">Register</a></p>
+      
+      <div class="image">
+        <img class="image1 n" src="images/cantons.gif" alt="" id="h1" onclick="Change1();">
+        <img class="image2 n" src="images/Switzerland-village_1369729.jpg" alt="" id="h2" onclick="Change2();">
+        <img class="image3 n" src="images/food.jpg" alt="" id="h3" onclick="Change3();">
+      </div>
+    
+      <div class="admin">
+          <span>Copyright &#169; 2020</span>
+          <p>
+            <blockquote> Discovering with me!!!
+                    <cite>&mdash; C. T. N</cite>
+            </blockquote>
+        </p>
+      </div>

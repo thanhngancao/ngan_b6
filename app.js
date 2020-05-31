@@ -6,6 +6,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const path = require('path');
 const app = express();
+const swaggerJsDoc=require('swagger-jsdoc');
+const swaggerUi =require('swagger-ui-express');
 
 // Passport Config
 require('./config/passport')(passport);
@@ -74,7 +76,34 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 
-// const PORT = process.env.PORT || 5000;
+const swaggerOptions={
+  swaggerDefinition: {
+      info: {
+          title: 'Restful API',
+          description: "API information",
+          contact: {
+              name: "Cao Thanh Ngân"
+          },
+          servers: ["http://localhost:3000"]
+      },
+      'openapi': '3.0.0'
+  },
+  apis: ["app.js"]
+};
+/**
+ * @swagger
+ * /user/createcomment:
+ *   post:
+ *    summary: Create new Comment. 
+  *    responses:
+ *      '201':
+ *        description: A JSON message created success
+  *      '422':
+ *        description: A JSON invalid input success
+ *      '500':
+ *        description: A JSON message created fail
+*/
+const swaggerDocs=swaggerJsDoc(swaggerOptions);
+app.use('/apidocs',swaggerUi.serve,swaggerUi.setup(swaggerDocs));
 
-// app.listen(PORT, console.log(`Server started on port ${PORT}`));
 

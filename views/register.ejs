@@ -1,58 +1,67 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body">
-      <h1 class="text-center mb-3">
-        <i class="fas fa-user-plus"></i> Register
-      </h1>
-      <%- include('partials/messages.ejs')%>      
-      <form action="/users/register" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            class="form-control"
-            placeholder="Enter Name"
-            value="<%= typeof name != 'undefined' ? name : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="Enter Email"
-            value="<%= typeof email != 'undefined' ? email : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Create Password"
-            value="<%= typeof password != 'undefined' ? password : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password2">Confirm Password</label>
-          <input
-            type="password"
-            id="password2"
-            name="password2"
-            class="form-control"
-            placeholder="Confirm Password"
-            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </form>
-      <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+  <link rel="stylesheet" href="/css/logout.css">
+  
+    <h1 class="Reg">Register</h1> 
+    <%- include('partials/messages.ejs')%>      
+    <form action="/users/register" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="name"
+          id="name"
+          name="name"
+          class="form-control"
+          placeholder="Enter Name"
+          value="<%= typeof name != 'undefined' ? name : '' %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="Enter Email"
+          value="<%= typeof email != 'undefined' ? email : '' %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          placeholder="Create Password"
+          value="<%= typeof password != 'undefined' ? password : '' %>"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          class="form-control"
+          placeholder="Confirm Password"
+          value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+        />
+      </div>
+      <button class="bure" type="submit" >Register</button>
+    </form>
+    <p class="acc">If you have an account you can login <a href="/users/login">Login</a></p>
+
+    <div class="image">
+      <img class="image1 n" src="images/cantons.gif" alt="" id="h1" onclick="Change1();">
+      <img class="image2 n" src="images/Switzerland-village_1369729.jpg" alt="" id="h2" onclick="Change2();">
+      <img class="image3 n" src="images/food.jpg" alt="" id="h3" onclick="Change3();">
     </div>
-  </div>
-</div>
+  
+    <div class="admin">
+        <span>Copyright &#169; 2020</span>
+        <p>
+          <blockquote> Discovering with me!!!
+                  <cite>&mdash; C. T. N</cite>
+          </blockquote>
+      </p>
+    </div>

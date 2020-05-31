@@ -10,7 +10,7 @@ body{
 }
 
 .swit {
-	color: #f79504;
+	color: navy;
 	height: 60px;
 	font-size: 36px;
 	line-height: 60px;
@@ -41,18 +41,18 @@ nav ul li a {
 	margin: 10px 0;
 	padding: 10px 20px;
 	text-decoration: none;
-	color: #fff;
+	color: navy;
 	font-weight: bold;
 	border-radius: 4px;
 }
 
 nav ul li a.active{
-	background: #f79504;
+	background: blue;
 	transition: 0.5s;
 }
 
 nav ul li a:hover {
-	background: rgba(247, 149, 4, .5);
+	background: Lavender;
 	transition: 0.5s;
 	border-radius: 0;
 }
@@ -125,4 +125,89 @@ nav ul li a:hover {
 .comments span img {
 	width: 20px;
 	height: 20px;
+}
+
+.image {
+	display: flex;
+}
+
+.image1 {
+	width: 420px;
+	height: 275px;
+	margin-left: 100px;
+}
+
+.image2 {
+	width: 420px;
+	height: 275px;
+}
+
+.image3 {
+	width: 420px;
+	height: 275px;
+}
+
+.n {
+	padding: 10px;
+	border-radius: 2px;
+}
+
+.admin {
+	width: 85%;
+	margin: 15px auto;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	text-align: center;
+}
+
+.create {
+	text-align: center;
+	margin-top: 100px;
+	font-weight: bold;
+	color: navy;
+}
+
+.a {
+	color: navy;
+
+}
+
+.Reg {
+	text-align: center;
+	color: navy;
+}
+
+.form-group {
+    width: 22%;
+	margin: 15px auto;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	color: navy;
+}
+
+.bure {
+	margin-left: 710px;
+	background-color: SkyBlue;
+}
+
+.acc {
+	text-align: center;
+}
+
+.logo {
+	margin-left: 1430px ;
+	width: 22%;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	border-radius: 4px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	color: navy;
+	font-weight: bold;
 }

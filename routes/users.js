@@ -5,13 +5,19 @@ const passport = require('passport');
 // Load User model
 const User = require('../models/User');
 const Comment = require('../models/Comment');
-const { forwardAuthenticated } = require('../config/auth');
+var MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb+srv://b6:y6bVkAtNvFsbKOeo@cluster0-xcap6.gcp.mongodb.net/b6?retryWrites=true&w=majority';
+
+const { forwardAuthenticated,ensureAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 
 // Register Page
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+
+//Commit Page
+router.get('/comment', ensureAuthenticated, (req, res) => res.render('comment'));
 
 // Register
 router.post('/register', (req, res) => {
@@ -89,7 +95,7 @@ router.post('/login', (req, res, next) => {
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();
-  req.flash('success_msg', 'You are logged out');
+  req.flash('success_msg');
   res.redirect('/users/login');
 });
 
@@ -131,7 +137,47 @@ router.get('/logout', (req, res) => {
 //         });
 //   }
 // });
+router.post('/comment', (req, res) => {
+  console.log(req.body);
+  const today = new Date();
+  const {email,comment} = req.body;
+  const newcomment = new Comment(
+    {
+        email:email,
+        comment:comment,
+        date:today
+    }
+    );
+    try {
+        const savecomment = newcomment.save();
+    } catch (err) {
+        res.json({ message: err })
+    }
+    res.redirect('/logout');
+  }
+)
 
+// router.get('/review', function(req,res,next) {
+//   MongoClient.connect(url, function(err,db){
+//     if(err) throw err;
+//     var dbo = db.db("b6");
+//     dbo.collection("comments").find({}).toArray(function(err,result){
+//       if (err) throw err;
+//       res.send(result);
+//       db.close();
+//     });
+//   });
+// });
 
-
+router.get('/review', function(req, res, next) {
+  Comment.find()
+    .then(comments => {
+      res.render('Listcomment', {
+        prods: comments, 
+        path: '/review', 
+        }
+      )
+    }
+  )
+})
 module.exports = router;
