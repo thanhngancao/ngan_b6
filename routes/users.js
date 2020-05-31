@@ -156,27 +156,27 @@ router.post('/comment', (req, res) => {
   }
 )
 
-// router.get('/review', function(req,res,next) {
-//   MongoClient.connect(url, function(err,db){
-//     if(err) throw err;
-//     var dbo = db.db("b6");
-//     dbo.collection("comments").find({}).toArray(function(err,result){
-//       if (err) throw err;
-//       res.send(result);
-//       db.close();
-//     });
-//   });
-// });
+router.get('/review', function(req,res,next) {
+  MongoClient.connect(url, function(err,db){
+    if(err) throw err;
+    var dbo = db.db("b6");
+    dbo.collection("comments").find({}).toArray(function(err,result){
+      if (err) throw err;
+      res.send(result);
+      db.close();
+    });
+  });
+});
 
-router.get('/review', function(req, res, next) {
-  Comment.find()
-    .then(comments => {
-      res.render('Listcomment', {
-        prods: comments, 
-        path: '/review', 
-        }
-      )
-    }
-  )
-})
+// router.get('/review', function(req, res, next) {
+//   Comment.find()
+//     .then(comments => {
+//       res.render('Listcomment', {
+//         prods: comments, 
+//         path: '/review', 
+//         }
+//       )
+//     }
+//   )
+// })
 module.exports = router;
