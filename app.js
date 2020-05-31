@@ -39,7 +39,13 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-
+//Set Header
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers','Content-Type, api_key');
+  next();
+});
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
