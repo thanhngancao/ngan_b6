@@ -13,9 +13,11 @@ const swaggerUi =require('swagger-ui-express');
 require('./config/passport')(passport);
 
 // DB Config
+const mongoURI = 'mongodb+srv://b6:y6bVkAtNvFsbKOeo@cluster0-xcap6.gcp.mongodb.net/b6?retryWrites=true&w=majority'
+
 const db = require('./config/keys').mongoURI;
 
-const mongoURI = 'mongodb+srv://b6:y6bVkAtNvFsbKOeo@cluster0-xcap6.gcp.mongodb.net/b6?retryWrites=true&w=majority'
+
 // Connect to MongoDB
 // mongoose
 //   .connect(
