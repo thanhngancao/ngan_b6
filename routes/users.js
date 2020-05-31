@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // Load User model
 const User = require('../models/User');
+const Comment = require('../models/Comment');
 const { forwardAuthenticated } = require('../config/auth');
 
 // Login Page
@@ -92,42 +93,45 @@ router.get('/logout', (req, res) => {
   res.redirect('/users/login');
 });
 
-router.post('/comment', (req, res) => {
-  const { email, comment } = req.body;
-  let errors = [];
+// Comment
+// router.post('/comment', (req, res) => {
+//   const { email, comment } = req.body;
+//   let errors = [];
 
-  if (!email || !comment) {
-    errors.push({ msg: 'Please enter all fields' });
-  }
+//   if (!email || !comment) {
+//     errors.push({ msg: 'Please enter all fields' });
+//   }
 
-  if (comment.length > 3) {
-    errors.push({ msg: 'You should comment at least 4 characters' });
-  }
+//   if (comment.length > 3) {
+//     errors.push({ msg: 'You should comment at least 4 characters' });
+//   }
 
-  if (errors.length > 0) {
-    res.render('comment', {
-      errors,
-      email,
-      comment
-    });
-  } else {
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if (err) throw err;
-          newUser.password = hash;
-            newUser
-              .save()
-              .then(user => {
-                req.flash(
-                  'success_msg',
-                  'Your comments are send successfully. You can see that in list comment'
-                );
-                res.redirect('/users/listcomment');
-              })
-              .catch(err => console.log(err));
-          });
-        });
-  }
-});
+//   if (errors.length > 0) {
+//     res.render('comment', {
+//       errors,
+//       email,
+//       comment
+//     });
+//   } else {
+//     bcrypt.genSalt(10, (err, salt) => {
+//       bcrypt.hash(newUser.password, salt, (err, hash) => {
+//         if (err) throw err;
+//           newUser.password = hash;
+//             newUser
+//               .save()
+//               .then(user => {
+//                 req.flash(
+//                   'success_msg',
+//                   'Your comments are send successfully. You can see that in list comment'
+//                 );
+//                 res.redirect('/users/listcomment');
+//               })
+//               .catch(err => console.log(err));
+//           });
+//         });
+//   }
+// });
+
+
 
 module.exports = router;
