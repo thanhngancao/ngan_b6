@@ -169,15 +169,6 @@ router.post('/comment', (req, res) => {
 // });
 
 router.get('/review', function(req, res, next) {
-  Comment.find()
-    .then(comments => {
-      res.render('Listcomment', {
-        prods: comments, 
-        path: '/review'
-        }
-      )
-    }
-  )
-})
+      res.render('Listcomment')});
 
 module.exports = router;
