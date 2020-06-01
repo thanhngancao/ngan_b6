@@ -173,7 +173,7 @@ router.get('/review',ensureAuthenticated, function(req, res, next) {
     .then(comments => {
       res.render('Listcomment', {
         prods: comments, 
-        path: '/review', 
+        path: '/users/review', 
         }
       )
     }
