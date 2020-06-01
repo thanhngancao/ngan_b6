@@ -178,6 +178,5 @@ router.get('/review',ensureAuthenticated, function(req, res, next) {
       )
     }
   )
-  next();
 })
 module.exports = router;
