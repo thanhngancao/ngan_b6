@@ -172,8 +172,7 @@ router.get('/review', function(req, res, next) {
   Comment.find()
     .then(comments => {
       res.render('Listcomment', {
-        prods: comments, 
-        path: '/users/review', 
+        prods: comments 
         }
       )
     }
