@@ -168,7 +168,7 @@ router.post('/comment', (req, res) => {
 //   });
 // });
 
-router.get('/review', function(req, res, next) {
+router.get('/review',ensureAuthenticated, function(req, res, next) {
   Comment.find()
     .then(comments => {
       res.render('Listcomment', {
