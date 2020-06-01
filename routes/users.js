@@ -18,7 +18,7 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 //Commit Page
 router.get('/comment', ensureAuthenticated, (req, res) => res.render('comment'));
 
-router.get('/review', ensureAuthenticated, (req, res) => res.render('ListComment'));
+router.get('/review', (req, res) => res.render('ListComment'));
 // Register
 router.post('/register', (req, res) => {
   const { name, email, password, password2 } = req.body;
