@@ -16,7 +16,6 @@ router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
 //Commit Page
-router.get('/comment', ensureAuthenticated, (req, res) => res.render('comment'));
 
 router.get('/review', (req, res) => res.render('ListComment'));
 // Register
@@ -169,16 +168,16 @@ router.post('/comment', (req, res) => {
 //   });
 // });
 
-// router.get('/review', function(req, res, next) {
-//   Comment.find()
-//     .then(comments => {
-//       res.render('Listcomment', {
-//         prods: comments, 
-//         path: '/review'
-//         }
-//       )
-//     }
-//   )
-// })
+router.get('/review', function(req, res, next) {
+  Comment.find()
+    .then(comments => {
+      res.render('Listcomment', {
+        prods: comments, 
+        path: '/review'
+        }
+      )
+    }
+  )
+})
 
 module.exports = router;
