@@ -17,7 +17,7 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 //Commit Page
 router.get('/comment', ensureAuthenticated, (req, res) => res.render('comment'));
-
+router.get('/review', ensureAuthenticated, (req, res) => res.render('ListComment'));
 // Register
 router.post('/register', (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -168,15 +168,16 @@ router.post('/comment', (req, res) => {
 //   });
 // });
 
-router.get('/review', function(req, res, next) {
-  Comment.find()
-    .then(comments => {
-      res.render('Listcomment', {
-        prods: comments 
-        }
-      )
-    }
-  )
-})
+// router.get('/review', function(req, res, next) {
+//   Comment.find()
+//     .then(comments => {
+//       res.render('Listcomment', {
+//         prods: comments, 
+//         path: '/review'
+//         }
+//       )
+//     }
+//   )
+// })
 
 module.exports = router;
