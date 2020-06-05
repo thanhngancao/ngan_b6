@@ -156,17 +156,6 @@ router.post('/comment', (req, res) => {
   }
 )
 
-// router.get('/review', function(req,res,next) {
-//   MongoClient.connect(url, function(err,db){
-//     if(err) throw err;
-//     var dbo = db.db("b6");
-//     dbo.collection("comments").find({}).toArray(function(err,result){
-//       if (err) throw err;
-//       res.send(result);
-//       db.close();
-//     });
-//   });
-// });
 // router.get('/review', ensureAuthenticated, (req,res) => {
 //   Comment.find()
 //       .then(comments => {
