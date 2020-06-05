@@ -17,6 +17,7 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 //Commit Page
 
+router.get('/users/review', ensureAuthenticated, (req,res) => res.render('ListComment'));
 // Register
 router.post('/register', (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -152,6 +153,17 @@ router.post('/comment', (req, res) => {
         res.json({ message: err })
     }
     res.redirect('/logout');
+  }
+)
+
+router.get('/review', ensureAuthenticated, (req,res) => {
+  Comment.find()
+      .then(comments => {
+          res.render('ListComment', {
+               props: Comment
+          })
+        })
+      .catch(err => console.log(err));
   }
 )
 
