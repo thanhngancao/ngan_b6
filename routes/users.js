@@ -168,7 +168,5 @@ router.post('/comment', (req, res) => {
 //   });
 // });
 
-router.get('/review', function(req, res, next) {
-      res.render('Listcomment')});
 
 module.exports = router;
