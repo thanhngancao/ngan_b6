@@ -160,7 +160,7 @@ router.get('/review', ensureAuthenticated, (req,res) => {
   Comment.find()
       .then(comments => {
           res.render('ListComment', {
-               props: Comment
+               props: comments
           })
         })
       .catch(err => console.log(err));
