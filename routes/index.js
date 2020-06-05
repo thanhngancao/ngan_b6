@@ -5,6 +5,7 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 // Homepage Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('homepage'));
 router.get('/users/comment', ensureAuthenticated, (req,res) => res.render('comment'));
+router.get('/users/reviews', forwardAuthenticated, (req,res) => res.render('ListComment'));
 // Swit Page
 router.get('/logout', ensureAuthenticated, (req, res) =>
   res.render('logout', {
